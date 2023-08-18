@@ -1,0 +1,47 @@
+.indMenuItem {
+  padding: 0 10px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #a9a9a9;
+  text-decoration: none;
+}
+.indMenuItem:hover {
+  color: #272727;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 32px;
+}
+.indMenuItemActive {
+  color: #272727;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 32px;
+}
+
+userMenuItem {
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #a9a9a9;
+  text-decoration: none !important;
+}
+
+userMenuItem:hover {
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #272727;
+}
+
+userMenuItemActive {
+  color: #272727;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+drawerItemsCont {
+  padding: 1.2em 0;
+  /* padding: "1.2em 0",
+  color: myTheme.palette.white.five,
+  borderBottom: "2px solid",
+  fontWeight: "medium", */
+}
