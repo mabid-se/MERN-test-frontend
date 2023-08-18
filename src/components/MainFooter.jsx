@@ -8,6 +8,20 @@ import inLogo from "../assets/icons/linkedinDark.png";
 import fbLogo from "../assets/icons/facebookDark.png";
 import igLogo from "../assets/icons/instagramDark.png";
 
+const useStyles = {
+  navLinkItem: {
+    color: "#a9a9a9",
+    fontWeight: 500,
+    textTransform: "capitalize",
+    textDecoration: "none",
+    "&:hover": {
+      color: "#4d4d4d",
+      textDecoration: "underline",
+    },
+  },
+  navLinkHead: { color: "#272727", fontWeight: 600 },
+};
+
 const MainFooter = () => {
   const linkCat1 = [
     { label: "link 1", link: "" },
@@ -232,29 +246,13 @@ const MainFooter = () => {
                   <Grid item xs={6} sm={4}>
                     <Grid container direction="column">
                       <Grid item>
-                        <Typography
-                          variant="h6"
-                          color="black.800"
-                          fontWeight="bold"
-                        >
+                        <Typography variant="h6" style={useStyles.navLinkHead}>
                           Link Cat 1
                         </Typography>
                       </Grid>
                       {linkCat1.map((item) => (
                         <Grid item>
-                          <Link
-                            to={item.link}
-                            style={{
-                              color: "#a9a9a9",
-                              fontWeight: 500,
-                              textTransform: "capitalize",
-                              textDecoration: "none",
-                              "&:hover": {
-                                color: "#4d4d4d",
-                                textDecoration: "underline",
-                              },
-                            }}
-                          >
+                          <Link to={item.link} style={useStyles.navLinkItem}>
                             {item.label}
                           </Link>
                         </Grid>
@@ -264,29 +262,13 @@ const MainFooter = () => {
                   <Grid item xs={6} sm={4}>
                     <Grid container direction="column">
                       <Grid item>
-                        <Typography
-                          variant="h6"
-                          color="black.800"
-                          fontWeight="bold"
-                        >
+                        <Typography variant="h6" style={useStyles.navLinkHead}>
                           Link Cat 2
                         </Typography>
                       </Grid>
                       {linkCat2.map((item) => (
                         <Grid item>
-                          <Link
-                            to={item.link}
-                            style={{
-                              color: "#a9a9a9",
-                              fontWeight: 500,
-                              textTransform: "capitalize",
-                              textDecoration: "none",
-                              "&:hover": {
-                                color: "#4d4d4d",
-                                textDecoration: "underline",
-                              },
-                            }}
-                          >
+                          <Link to={item.link} style={useStyles.navLinkItem}>
                             {item.label}
                           </Link>
                         </Grid>
@@ -296,29 +278,13 @@ const MainFooter = () => {
                   <Grid item xs={6} sm={4}>
                     <Grid container direction="column">
                       <Grid item>
-                        <Typography
-                          variant="h6"
-                          color="black.800"
-                          fontWeight="bold"
-                        >
+                        <Typography variant="h6" style={useStyles.navLinkHead}>
                           Link Cat 3
                         </Typography>
                       </Grid>
                       {linkCat3.map((item) => (
                         <Grid item>
-                          <Link
-                            to={item.link}
-                            style={{
-                              color: "#a9a9a9",
-                              fontWeight: 500,
-                              textTransform: "capitalize",
-                              textDecoration: "none",
-                              "&:hover": {
-                                color: "#4d4d4d",
-                                textDecoration: "underline",
-                              },
-                            }}
-                          >
+                          <Link to={item.link} style={useStyles.navLinkItem}>
                             {item.label}
                           </Link>
                         </Grid>
@@ -329,29 +295,13 @@ const MainFooter = () => {
                   <Grid item xs={6} sm={4}>
                     <Grid container direction="column">
                       <Grid item>
-                        <Typography
-                          variant="h6"
-                          color="black.800"
-                          fontWeight="bold"
-                        >
+                        <Typography variant="h6" style={useStyles.navLinkHead}>
                           Link Cat 4
                         </Typography>
                       </Grid>
                       {linkCat4.map((item) => (
                         <Grid item>
-                          <Link
-                            to={item.link}
-                            style={{
-                              color: "#a9a9a9",
-                              fontWeight: 500,
-                              textTransform: "capitalize",
-                              textDecoration: "none",
-                              "&:hover": {
-                                color: "#4d4d4d",
-                                textDecoration: "underline",
-                              },
-                            }}
-                          >
+                          <Link to={item.link} style={useStyles.navLinkItem}>
                             {item.label}
                           </Link>
                         </Grid>
@@ -362,30 +312,14 @@ const MainFooter = () => {
                   <Grid item xs={6} sm={4}>
                     <Grid container direction="column">
                       <Grid item>
-                        <Typography
-                          variant="h6"
-                          color="black.800"
-                          fontWeight="bold"
-                        >
-                          Link Cat 6
+                        <Typography variant="h6" style={useStyles.navLinkHead}>
+                          Link Cat 5
                         </Typography>
                       </Grid>
 
                       {linkCat5.map((item) => (
                         <Grid item>
-                          <Link
-                            to={item.link}
-                            style={{
-                              color: "#a9a9a9",
-                              fontWeight: 500,
-                              textTransform: "capitalize",
-                              textDecoration: "none",
-                              "&:hover": {
-                                color: "#4d4d4d",
-                                textDecoration: "underline",
-                              },
-                            }}
-                          >
+                          <Link to={item.link} style={useStyles.navLinkItem}>
                             {item.label}
                           </Link>
                         </Grid>
@@ -396,29 +330,13 @@ const MainFooter = () => {
                   <Grid item xs={6} sm={4}>
                     <Grid container direction="column">
                       <Grid item>
-                        <Typography
-                          variant="h6"
-                          color="black.800"
-                          fontWeight="bold"
-                        >
-                          Link Cat 6
+                        <Typography variant="h6" style={useStyles.navLinkHead}>
+                          Support
                         </Typography>
                       </Grid>
                       {linkCat6.map((item) => (
                         <Grid item>
-                          <Link
-                            to={item.link}
-                            style={{
-                              color: "#a9a9a9",
-                              fontWeight: 500,
-                              textTransform: "capitalize",
-                              textDecoration: "none",
-                              "&:hover": {
-                                color: "#4d4d4d",
-                                textDecoration: "underline",
-                              },
-                            }}
-                          >
+                          <Link to={item.link} style={useStyles.navLinkItem}>
                             {item.label}
                           </Link>
                         </Grid>

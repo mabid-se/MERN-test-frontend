@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
+  Alert,
   Box,
   Button,
   Container,
   Paper,
+  Snackbar,
   Table,
   TableBody,
   TableCell,
@@ -22,7 +24,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
   "&:last-child td, &:last-child th": {
     border: 0,
   },
@@ -52,7 +53,10 @@ const PersonsList = () => {
   const getPersons = async () => {
     try {
       //fetching the persons
-      const res = await axios.get(`http://localhost:8080/persons`);
+      // const res = await axios.get(`http://localhost:8080/persons`);
+      const res = await axios.get(
+        `https://mern-test-backend-production-3092.up.railway.app/persons`
+      );
       //set the state
       setPersons(res.data.persons);
     } catch (error) {
@@ -60,14 +64,24 @@ const PersonsList = () => {
     }
   };
 
+  // handle toast show hide state
+  const [toastOpen, setToastOpen] = useState(false);
+
   // delete specific person
   const deletePerson = async (_id) => {
-    //  send request to delete person
-    const res = await axios.delete(`http://localhost:8080/persons/${_id}`);
+    try {
+      //  send request to delete person
+      // const res = await axios.delete(`http://localhost:8080/persons/${_id}`);
+      const res = await axios.delete(
+        `https://mern-test-backend-production-3092.up.railway.app/persons/${_id}`
+      );
 
-    // update the state
-    const newPersons = [...persons].filter((person) => person._id !== _id);
-    setPersons(newPersons);
+      setToastOpen(true); // update the state
+      const newPersons = [...persons].filter((person) => person._id !== _id);
+      setPersons(newPersons);
+    } catch (error) {
+      console.error("error while deleting: ", error);
+    }
   };
 
   useEffect(() => {
@@ -164,6 +178,19 @@ const PersonsList = () => {
           </Paper>
         </Container>
       </Box>
+      <Snackbar
+        open={toastOpen}
+        onClose={() => setToastOpen(false)}
+        autoHideDuration={1500}
+      >
+        <Alert
+          severity="warning"
+          onClose={() => setToastOpen(false)}
+          sx={{ width: "100%" }}
+        >
+          Employee deleted successfully!
+        </Alert>
+      </Snackbar>
     </>
   );
 };

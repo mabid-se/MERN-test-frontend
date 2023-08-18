@@ -94,11 +94,14 @@ const UpdatePersonForm = (data) => {
         console.log("sending data to api");
         console.log("id: ", idF);
 
-        const res = await axios.put(`http://localhost:8080/persons/${idF}`, {
-          nameF,
-          sectorsF,
-          termsF,
-        });
+        const res = await axios.put(
+          `https://mern-test-backend-production-3092.up.railway.app/persons/${idF}`,
+          {
+            nameF,
+            sectorsF,
+            termsF,
+          }
+        );
 
         setToastOpen(true);
         setMessageText("Employee updated scuccessfully");
