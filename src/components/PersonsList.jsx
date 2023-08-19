@@ -19,6 +19,7 @@ import {
 import { NavLink } from "react-router-dom";
 
 import { styled } from "@mui/material/styles";
+import { ArrowForward, Check, Close } from "@mui/icons-material";
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
@@ -30,13 +31,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const PersonsList = () => {
-  const columns = [
-    "Name",
-    "Sectors",
-    "Terms",
-    "Edit Employee",
-    "Delete Employee",
-  ];
+  const columns = ["Emp. Name", "Sectors", "Terms", "Edit Emp.", "Delete Emp."];
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -144,19 +139,66 @@ const PersonsList = () => {
                             textTransform="capitalize"
                             color="#526D82"
                           >
-                            {person.terms && <>agree</>}
-                            {!person.terms && <>disagree</>}
+                            {person.terms && (
+                              <>
+                                <Check
+                                  sx={{ color: "#21C676", fontSize: "30px" }}
+                                />
+                              </>
+                            )}
+                            {!person.terms && (
+                              <>
+                                <Close
+                                  sx={{ color: "#C62221", fontSize: "30px" }}
+                                />
+                              </>
+                            )}
                           </Typography>
                         </TableCell>
                         <TableCell>
-                          <Button>
-                            <NavLink to="/update" state={{ person: person }}>
+                          <NavLink to="/update" state={{ person: person }}>
+                            <Button
+                              disableRipple
+                              sx={{
+                                py: 1,
+                                px: 3,
+                                color: "#ffffff",
+                                fontSize: 15,
+                                fontWeight: 700,
+                                textTransform: "none",
+                                letterSpacing: 1,
+                                border: 2,
+                                borderColor: "#4d4d4d",
+                                backgroundColor: "#4d4d4d",
+                                borderRadius: 3,
+                                "&:hover": { color: "#4d4d4d" },
+                              }}
+                            >
                               Update
-                            </NavLink>
-                          </Button>
+                            </Button>
+                          </NavLink>
                         </TableCell>
                         <TableCell>
-                          <Button onClick={() => deletePerson(person._id)}>
+                          <Button
+                            disableRipple
+                            sx={{
+                              py: 1,
+                              px: 3,
+                              color: "#ED5E68",
+                              fontSize: 15,
+                              fontWeight: 700,
+                              textTransform: "none",
+                              letterSpacing: 1,
+                              border: 2,
+                              borderRadius: 3,
+                              "&:hover": {
+                                color: "#ffffff",
+                                borderColor: "#ED5E68",
+                                backgroundColor: "#ED5E68",
+                              },
+                            }}
+                            onClick={() => deletePerson(person._id)}
+                          >
                             Delete
                           </Button>
                         </TableCell>
