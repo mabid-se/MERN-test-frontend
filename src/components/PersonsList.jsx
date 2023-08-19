@@ -117,7 +117,7 @@ const PersonsList = () => {
                             textTransform="capitalize"
                             color="#526D82"
                           >
-                            {person._id} {person.name}
+                            {person.name}
                           </Typography>
                         </TableCell>
                         <TableCell>
