@@ -53,10 +53,10 @@ const PersonsList = () => {
   const getPersons = async () => {
     try {
       //fetching the persons
-      // const res = await axios.get(`http://localhost:8080/persons`);
       const res = await axios.get(
         `https://mern-test-backend-production-3092.up.railway.app/persons`
       );
+
       //set the state
       setPersons(res.data.persons);
     } catch (error) {
@@ -71,7 +71,6 @@ const PersonsList = () => {
   const deletePerson = async (_id) => {
     try {
       //  send request to delete person
-      // const res = await axios.delete(`http://localhost:8080/persons/${_id}`);
       const res = await axios.delete(
         `https://mern-test-backend-production-3092.up.railway.app/persons/${_id}`
       );

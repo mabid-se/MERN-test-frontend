@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { SectorsData } from "../data/Sectors";
 import {
@@ -10,7 +10,6 @@ import {
   Grid,
   Paper,
   Snackbar,
-  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -90,16 +89,14 @@ const AddPersonForm = () => {
     } else {
       try {
         const res = await axios.post(
-          // "http://localhost:8080/persons",
           "https://mern-test-backend-production-3092.up.railway.app/persons",
           createPerson
         );
-        // console.log("Person added: ", res.data);
         setToastOpen(true);
         setMessageText("Employee added scuccessfully");
 
         // Clear the form after successful submission
-        setCreatePerson({ name: "", sectors: "", terms: false });
+        setCreatePerson({ name: "", sectors: [], terms: false });
         navigate("/");
       } catch (error) {
         console.error("Error adding person", error);

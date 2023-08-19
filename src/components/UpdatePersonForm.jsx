@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SectorsData } from "../data/Sectors";
 import { ArrowBack, ArrowForward, Check, Close } from "@mui/icons-material";
 import axios from "axios";
@@ -65,52 +65,45 @@ const UpdatePersonForm = (data) => {
 
   //   handle update person state
   const [updatePerFrom, setUpdatePerForm] = useState({
-    id: _id,
-    name: name,
-    sectors: sectors,
-    terms: terms,
+    id: null,
+    name: "",
+    sectors: [],
+    terms: "",
   });
 
   // send request to update employee
   const updatePersonRequest = async (e) => {
     e.preventDefault();
+
     setUpdatePerForm({
-      id: _id,
       name: enteredName,
       sectors: selectedSectors,
       terms: selectedTerms,
     });
 
-    const { idF, nameF, sectorsF, termsF } = updatePerFrom;
-
     // Check if all required fields are filled
-    if (enteredName === "" || selectedSectors === [] || selectedTerms === "") {
+    if (
+      updatePerFrom.name === "" ||
+      updatePerFrom.sectors === [] ||
+      updatePerFrom.terms === ""
+    ) {
       setToastOpen(true);
-      if (enteredName === "") setMessageText("Please enter your name");
-      else if (selectedSectors === []) setMessageText("Please select sectors");
+      if (updatePerFrom.name === "") setMessageText("Please enter your name");
+      else if (updatePerFrom.sectors === [])
+        setMessageText("Please select sectors");
       else setMessageText("Please select terms");
     } else {
       try {
-        console.log("sending data to api");
-        console.log("id: ", idF);
-
         const res = await axios.put(
-          `https://mern-test-backend-production-3092.up.railway.app/persons/${idF}`,
-          {
-            nameF,
-            sectorsF,
-            termsF,
-          }
+          `https://mern-test-backend-production-3092.up.railway.app/persons/${_id}`,
+          updatePerFrom
         );
 
         setToastOpen(true);
         setMessageText("Employee updated scuccessfully");
 
         // clear update from state
-        setEnteredName("");
-        setSelectedSectors([]);
-        setSelectedTerms("");
-        // setUpdatePerForm({ name: "", sectors: [], terms: "" });
+        setUpdatePerForm({ name: "", sectors: [], terms: "" });
         navigate("/");
       } catch (error) {
         console.error("Error while updating employee: ", error);
